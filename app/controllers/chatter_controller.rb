@@ -1,6 +1,6 @@
 class ChatterController < ApplicationController
 
-before_filter :make_websocket , only: [:server]
+before_filter :make_websocket , only: [:page]
 
   def server
   end
