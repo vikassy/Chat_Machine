@@ -8,7 +8,7 @@ $(document).ready(function(){
   $("#messages").append(mes.data);
   };
 
-  ws = new WebSocket("ws:127.0.0.1:4000");
+  ws = new WebSocket("ws:0.0.0.0:4000");
   ws.onopen = function() { ws.send("Connected to Server");}
   ws.onclose = function() { post_server("Server connection lost");} 
   ws.onmessage = function(msg)  {post(msg);} 

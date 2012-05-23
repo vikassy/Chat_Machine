@@ -1,6 +1,7 @@
 Chat::Application.routes.draw do
   # The priority is based upon order of creation:
   # first created -> highest priority.
+   match '/server' , to: 'chatter#paserver'
    match '/p2' , to: 'chatter#page2'
    root :to => 'chatter#page'
   # Sample of regular route:

@@ -1,8 +1,8 @@
 class ChatterController < ApplicationController
 
-before_filter :make_websocket , only: [:page]
+before_filter :make_websocket , only: [:paserver]
 
-  def server
+  def paserver
   end
 
   def page
