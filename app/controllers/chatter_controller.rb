@@ -17,7 +17,7 @@ before_filter :make_websocket , only: [:paserver]
 soc = []
 
 
-EM::WebSocket.start(host: 'afternoon-autumn-2128.herokuapp.com') do |ws|
+EM::WebSocket.start(host: 'afternoon-autumn-2128.herokuapp.com' , port:3000) do |ws|
 
   ws.onopen{soc << ws;puts "#{soc.length} clients present";ws.send('Welcome to chat server !!')}
   ws.onmessage { |msg| ; soc.each do |s| 
