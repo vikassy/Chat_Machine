@@ -17,7 +17,7 @@ before_filter :make_websocket , only: [:paserver]
 soc = []
 
 
-EM::WebSocket.start(host: '127.0.0.1' , port: $PORT) do |ws|
+EM::WebSocket.start(host: '0.0.0.0' , port: $PORT) do |ws|
 
   ws.onopen{soc << ws;puts "#{soc.length} clients present";ws.send('Welcome to chat server !!')}
   ws.onmessage { |msg| ; soc.each do |s| 

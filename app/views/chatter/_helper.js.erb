@@ -8,7 +8,7 @@ $(document).ready(function(){
   $("#messages").prepend('<p style = "color: blue ; background-color: yellow">'+mes.data+"</p>").hide().fadeIn('slow');
   };
 
-  ws = new WebSocket("ws:0.0.0.1:"+<%= $PORT.to_s %>);
+  ws = new WebSocket("ws:0.0.0.0:"+<%= $PORT.to_s %>);
   ws.onopen = function() { ws.send("Connected to Server");}
   ws.onclose = function() { post_server("Server connection lost");} 
   ws.onmessage = function(msg)  {post(msg);} 
