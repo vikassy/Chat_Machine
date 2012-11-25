@@ -11,3 +11,12 @@
  *= require_self
  *= require_tree .
 */
+
+html {
+      background-color:#ccdbce;
+      background-image: url('images/back.jpg');
+      background-repeat: repeat;
+      background-position: left top;
+      color:#444;
+}
+h2 {color: #00ffff; }

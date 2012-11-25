@@ -1,9 +1,23 @@
 Chat::Application.routes.draw do
   # The priority is based upon order of creation:
   # first created -> highest priority.
+  match "chat" => "chatter#chat"
+
+  match "/upload" => "chatter#upload"
+
+  # get "pages/chat"
+
+  # get "pages/upload"
+
+  post "chatter/create"
+  match "/upload" , to: "chatter#upload"
+  match "/save" , to: "chatter#save"
+
+
+  get "chatter/delete"
    match '/server' , to: 'chatter#paserver'
    match '/p2' , to: 'chatter#page2'
-   root :to => 'chatter#page'
+   root :to => 'chatter#login'
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action

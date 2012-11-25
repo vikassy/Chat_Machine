@@ -1,0 +1,10 @@
+<font color="green">
+<h1> Uploads And Downloads !!</h1></font>
+<%= form_for(@up , url: save_path , :html => { :multipart => true }) do |f| %>
+<%= f.file_field :file %>
+<%= f.submit "Submit" %>
+<% end %>
+<% @all.each do |f| %>
+<h3> <font color="red"><%= f.name %></font> <font color="white">uploaded</font> <%= link_to "File" , f.file.url(:original, false ) %><br /></h3>
+<% end %>
+</font>

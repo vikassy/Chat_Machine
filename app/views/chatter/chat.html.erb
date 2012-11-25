@@ -1,0 +1,14 @@
+<%= render 'helper.js.erb' %>
+<div id="side-bar">
+<h2 font >Crypt your message</h2>
+<font color="white"><%= text_field("chat", "message" , {remote: true , size: 80}) %></font>
+</div>
+<div id="link">
+<%= button_to "Upload and Download" , upload_path ,{method: 'get'} %>
+	</div>
+<div id="messages">
+	<% @a.each do |f| %>
+	<p style = "color: green"><font size=4 ><%= sanitize f.html_safe , :tags => %w(font) , :attributes => %w(color)%></font></p>
+	<% end %>
+</div>
+

@@ -1,3 +1,21 @@
 // Place all the styles related to the chatter controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#side-bar{
+	color: #00ffff;
+	//position: absolute;
+	//top: 40px;
+	//left: 1000px;
+}
+#messages{
+	position: absolute;
+}
+
+#link {
+	position: relative;
+	top: 40px;
+	left: 1000px
+}
+
+//h2 {color: #00ffff; }

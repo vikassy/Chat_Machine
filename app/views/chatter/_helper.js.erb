@@ -1,24 +1,47 @@
-    <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js'></script>
-    <script>
+<script>
 $(document).ready(function(){
+var n=0;
   function post_server(mes){
-  $("#messages").prepend('<p style = "color: red ;background-color: yellow">'+mes+"</p>");
+  $("#messages").prepend('<p style = "color: red ;background-color: yellow"><font size=4 >'+mes+"<font></p>");
   };
   function post(mes) {
-  $("#messages").prepend('<p style = "color: blue ; background-color: yellow">'+mes.data+"</p>").hide().fadeIn('slow');
+  $("#messages").prepend('<p style = "color: blue ; background-color: yellow"><font size=4 >'+mes.data+"<font></p>").hide().fadeIn('slow');
   };
+  // function history(mes) {
+  //   var html=mes;
+  // $("#messages").append('<p style = "color: green"><font size=4 >'+html+"</font></p>").hide().fadeIn('slow');
+  // };
+  function post_two(mes) {
+  $("#messages").prepend('<p style = "color: green"><font size=4 >'+mes.data+"</font></p>").hide().fadeIn('slow');
+  };
+  var name = "<font color="+"red"+"><%= cookies[:name].to_s %></font>"
+  //Change the below number for the LAN !!!
+// var address = "ws:169.254.96.158:4000";
+// var address = "ws:10.0.2.15:4000"
 
-  ws = new WebSocket("ws:0.0.0.0:"+<%= $PORT.to_s %>);
-  ws.onopen = function() { ws.send("Connected to Server");}
-  ws.onclose = function() { post_server("Server connection lost");} 
-  ws.onmessage = function(msg)  {post(msg);} 
 
-
+var address = "ws:10.20.4.130:4000"
+var webSocket;
+if (typeof MozWebSocket === "undefined") 
+  ws = new WebSocket(address);
+else
+{
+  if ( $.browser.mozilla ) {
+  ws = new MozWebSocket(address);
+} else {
+  ws = new WebSocket(address);
+}
+}
+  // ws = new WebSocket(address);
+  ws.onopen = function() { ws.send(name+"  "+"Joined the chat !!!");}
+  ws.onclose = function() { post_server("Server connection lost");ws.send(name+" "+"disconnected !!")} 
+  ws.onmessage = function(msg)  {post_two(msg);} 
+  
 $('#chat_message').keypress(function(e) {
   if (e.keyCode === 13){
   var message = document.getElementById("chat_message")
 //  alert(message.value);
-  ws.send(message.value);
+  ws.send(name+": "+message.value);
   message.value = "";
   }});
 });
