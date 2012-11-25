@@ -2,7 +2,7 @@
 
   An online real time chat application, used in Marathon Round2 in Engineer 2012!!!
 
-#Used --
+#Used
 
   EventMachine 
   Websocket
@@ -10,6 +10,6 @@
   Reddis database
   Thin client server
 
-#Code --
+#Code
 
-  The websocket code can be found in chat_controller in make_websocket
+  The chat server code can be found in ChatController in make_websocket
